@@ -1,23 +1,5 @@
 <%= render "shared/header" %>
 
-  <%# 上部のボタン %>
-  <div class='nav'>
-    <ul class='lists-left'>
-      <li><%= link_to '地域', "#", class: "prefecture-list" %></li>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-    </ul>
-    <ul class='lists-right'>
-      <%# if user_signed_in? %>
-        <li><%= link_to "ユーザーさん", "#", class: "user-nickname" %> </li>
-        <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" %> </li>
-      <%# else %>
-        <li><%= link_to 'ログイン', "#", class: "login" %></li>
-        <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
-      <%# end %>
-    </ul>
-  </div>
-  <%# 上部のボタン %>
-
   <%# とりぴよでできること %>
   <div class='feature-contents'>
     <h2 class='title'>
