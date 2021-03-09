@@ -1,0 +1,28 @@
+.footer {
+  width: 100vw;
+  padding: 2vh 15vw;
+  color: black;
+  background-color: lightyellow;
+  text-align: center;
+}
+
+.footer-contents {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.inko-details {
+  margin: 0 4vw;
+}
+
+.footer-link {
+  color: black;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.logo-white {
+  width: 20vh;
+  vertical-align: bottom;
+}

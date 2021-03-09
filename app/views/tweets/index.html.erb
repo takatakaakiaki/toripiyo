@@ -1,2 +1,82 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<%= render "shared/header" %>
+
+  <%# 上部のボタン %>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to '地域', "#", class: "prefecture-list" %></li>
+      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+    </ul>
+    <ul class='lists-right'>
+      <%# if user_signed_in? %>
+        <li><%= link_to "ユーザーさん", "#", class: "user-nickname" %> </li>
+        <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" %> </li>
+      <%# else %>
+        <li><%= link_to 'ログイン', "#", class: "login" %></li>
+        <li><%= link_to '新規登録', "#", class: "sign-up" %></li>
+      <%# end %>
+    </ul>
+  </div>
+  <%# 上部のボタン %>
+
+  <%# とりぴよでできること %>
+  <div class='feature-contents'>
+    <h2 class='title'>
+      とりぴよでできること
+    </h2>
+    <ul class='feature-lists'>
+      <li class='list'>
+        <%= image_tag "inko-jiman.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          うちの子自慢
+        </h3>
+        <p class='feature-list-description'>
+          自分が飼っている可愛いインコについてお互い語りましょう
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "inko-neru.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          インコの疑問
+        </h3>
+        <p class='feature-list-description'>
+          首を振っている、目をギョロっとさせているなど、インコの何故何がわかるかも？
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag "inko-masuku.png", class:"list-pict" %>
+        <h3 class='feature-list-text'>
+          情報交換など
+        </h3>
+        <p class='feature-list-description'>
+          例えば、引越し先などでインコを診てくれる病院などを事前に探す等、情報交換として活用してください
+        </p>
+      </li>
+    </ul>
+  </div>
+  <%# とりぴよでできること %>
+
+  <%# 記事一覧 %>
+  <div class='tweet-contents'>
+    <h2 class='title'>新規投稿記事</h2>
+      <ul class='tweet-lists'>
+
+        <%# 後で処置"ほげ".each do |f|%>
+      
+          <li class='list'>
+            <%= link_to "#" do %>
+              <div class='tweet-img-content'>
+                <%= image_tag "inko-sample.png", class: "tweet-img" %>  
+              </div>
+
+              <div class='tweet-info'>
+                <h3 class='tweet-name'>
+                  <%= "記事名" %>
+                </h3>
+              </div>
+            <% end %>
+          </li>
+        <%# end %>
+      </ul>
+  </div>
+
+<%= render "shared/footer" %>
