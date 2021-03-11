@@ -63,7 +63,7 @@
 
   <%#投稿ボタン %>
   </div>
-  <%= link_to('#', class: 'post-btn') do %>
+  <%= link_to(new_tweet_path, class: 'post-btn') do %>
     <span class='post-btn-text'>投稿する</span>
     <%= image_tag 'inko_post.png' , size: '185x50' ,class: "post-btn-icon" %>
   <% end %>
