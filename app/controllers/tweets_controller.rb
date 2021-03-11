@@ -1,11 +1,12 @@
 class TweetsController < ApplicationController
+  
   def index
   end
 
-  def create
+  def new
   end
 
-  def new
+  def create
   end
 
 end
