@@ -12,7 +12,7 @@
 
     <% if user_signed_in? %>
       <% if current_user.id == @tweet.user_id %>
-        <%= link_to "記事の編集", "#", method: :get, class: "tweet-red-btn" %>
+        <%= link_to "記事の編集", edit_tweet_path, method: :get, class: "tweet-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", tweet_path, method: :delete, class:"tweet-destroy" %>
       <% end %>
