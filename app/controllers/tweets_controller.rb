@@ -22,6 +22,9 @@ class TweetsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def destroy
     if user_signed_in? && current_user.id == @tweet.user.id
       @tweet.destroy
