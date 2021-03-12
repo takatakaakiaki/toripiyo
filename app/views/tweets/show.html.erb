@@ -14,7 +14,7 @@
       <% if current_user.id == @tweet.user_id %>
         <%= link_to "記事の編集", "#", method: :get, class: "tweet-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", "#", method: :delete, class:"tweet-destroy" %>
+        <%= link_to "削除", tweet_path, method: :delete, class:"tweet-destroy" %>
       <% end %>
     <% end %>
 
