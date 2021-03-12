@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @tweets = Tweet.all.order('created_at DESC')
@@ -16,6 +16,10 @@ class TweetsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @tweet = Tweet.find(params[:id])
   end
 
   private
