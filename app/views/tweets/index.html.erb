@@ -40,25 +40,49 @@
   <%# 記事一覧 %>
   <div class='tweet-contents'>
     <h2 class='title'>新規投稿記事</h2>
-      <ul class='tweet-lists'>
-
-        <%# 後で処置"ほげ".each do |f|%>
-      
+    <ul class='tweet-lists'>
+      <% if @tweets.present? %>
+        <% @tweets.each do |tweet|%>
           <li class='list'>
             <%= link_to "#" do %>
               <div class='tweet-img-content'>
-                <%= image_tag "inko-sample.png", class: "tweet-img" %>  
+                <%= image_tag tweet.image, class: "tweet-img" if tweet.image.attached? %>  
               </div>
-
               <div class='tweet-info'>
                 <h3 class='tweet-name'>
-                  <%= "記事名" %>
+                  <%= tweet.title %>
                 </h3>
               </div>
             <% end %>
           </li>
-        <%# end %>
-      </ul>
+        <% end %>
+      <% end %>
+
+      <%# サンプル画像 %>
+      <% if @tweets.length == 0 %>
+        <li class='list'>
+          <%= link_to '#' do %>
+            <%= image_tag "inko-sample.png", class: "tweet-img" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
+    <%# サンプル画像 %>
+<%# 記事一覧 %>
+
+
+
+
+
+
+
+  <%#投稿ボタン %>
+  </div>
+  <%= link_to(new_tweet_path, class: 'post-btn') do %>
+    <span class='post-btn-text'>投稿する</span>
+    <%= image_tag 'inko_post.png' , size: '185x50' ,class: "post-btn-icon" %>
+  <% end %>
+  <%#投稿ボタン %>
 
 <%= render "shared/footer" %>
