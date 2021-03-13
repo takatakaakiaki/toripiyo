@@ -1,84 +1,83 @@
 <%= render "shared/second-header" %>
 
+<div class="tweets-post-contents">
   <div class="tweets-post-main">
     <h2 class="tweets-post-title">記事の内容を入力</h2>
     <%= form_with(model: @tweet, local: true)  do |f| %>
 
-    <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
-    <%# 記事の画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        記事の画像
-        <span class="indispensable">必須</span>
+      <%# 記事の画像 %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          記事の画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"tweet-image" %>
+        </div>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
+      <%# /記事の画像 %>
+
+      <%# タイトルと記事 %>
+      <div class="new-tweets">
+        <div class="weight-bold-text">
+          タイトル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :title, class:"tweets-text", id:"tweet-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
+        <div class="tweets-explain">
+          <div class="weight-bold-text">
+            記事
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :article, class:"tweets-text", id:"tweet-info", placeholder:"記事の内容" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+      <%# /タイトルと記事 %>
+
+      <%# 記事の詳細 %>
+      <div class="tweets-detail">
+        <div class="weight-bold-text">記事の詳細</div>
+        <div class="form">
+          <div class="weight-bold-text">
+            カテゴリー
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"tweet-category"}) %>
+          <div class="weight-bold-text">
+            都道府県
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"tweet-prefecture"}) %>
+          <div class="weight-bold-text">
+            市町村
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :city, class:"city-text", id:"tweet-city", placeholder:"札幌市北区（必須 20文字まで)", maxlength:"20" %>
+        </div>
+      </div>
+      <%# /記事の詳細 %>
+
+      <%# 注意書き %>
+      <div class="caution">
+        <p class="sentence">
+          飼い主やペットに対する誹謗中傷、個人を特定するような記事の投稿はご遠慮ください。
         </p>
-        <%= f.file_field :image, id:"tweet-image" %>
       </div>
-    </div>
-    <%# /記事の画像 %>
+      <%# /注意書き %>
 
-    <%# タイトルと記事 %>
-    <div class="new-tweets">
-      <div class="weight-bold-text">
-        タイトル
-        <span class="indispensable">必須</span>
+      <%# 下部ボタン %>
+      <div class="tweet-btn-contents">
+        <%= f.submit "変更する" ,class:"tweet-btn" %>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>
       </div>
-      <%= f.text_area :title, class:"tweets-text", id:"tweet-title", placeholder:"タイトル（必須 40文字まで)", maxlength:"40" %>
-      <div class="tweets-explain">
-        <div class="weight-bold-text">
-          記事
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :article, class:"tweets-text", id:"tweet-info", placeholder:"記事の内容" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <%# /タイトルと記事 %>
-
-    <%# 記事の詳細 %>
-    <div class="tweets-detail">
-      <div class="weight-bold-text">記事の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"tweet-category"}) %>
-        <div class="weight-bold-text">
-          都道府県
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"tweet-prefecture"}) %>
-        <div class="weight-bold-text">
-          市町村
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :city, class:"city-text", id:"tweet-city", placeholder:"札幌市北区（必須 20文字まで)", maxlength:"20" %>
-      </div>
-    </div>
-    <%# /記事の詳細 %>
-
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        飼い主やペットに対する誹謗中傷、個人を特定するような記事の投稿はご遠慮ください。
-      </p>
-    </div>
-    <%# /注意書き %>
-
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
-    <%# /下部ボタン %>
-  
+      <%# /下部ボタン %>
+    <% end %>    
   </div>
-  <% end %>
 </div>
-
 
 <%= render "shared/second-footer" %>
