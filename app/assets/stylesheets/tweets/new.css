@@ -1,5 +1,15 @@
 /* border-bottom: 1px solid #eee; */
 
+.tweets-post-contents {
+  background-color: #f5f5f5;
+  font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 500px;
+}
+
 .tweets-post-main {
   background-color: #FFF;
   width: 70vw;
@@ -111,43 +121,11 @@
   margin: 2vh 0;
 }
 
+.city-text {
+  font-size: 15px;
+}
 
 /* /記事の詳細 */
-
-
-/* 販売価格 */
-.sell-price {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.price-content {
-  width: 300px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.price-text {
-  /* min-width: 170px; */
-  display: flex;
-  align-items: center;
-}
-
-.sell-yen {
-  font-size: 18px;
-}
-
-.price-input {
-  height: 30px;
-  text-align: right;
-  padding-right: 10px;
-}
-
-/* /販売価格 */
 
 /* 注意書き */
 .caution {
@@ -162,12 +140,12 @@
 /* /注意書き */
 
 /* 下部ボタン */
-.sell-btn-contents {
+.tweet-btn-contents {
   width: 100%;
   text-align: center;
 }
 
-.sell-btn {
+.tweet-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
@@ -186,30 +164,3 @@
 }
 
 /* /下部ボタン */
-
-.items-sell-footer {
-  background-color: #f5f5f5;
-  width: 60vw;
-  padding: 3ch 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.items-sell-footer>.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3vh 0;
-}
-
-.menu>li>a {
-  color: black;
-  font-size: 12px;
-  margin: 2vw;
-}
-
-.inc {
-  font-size: 13px;
-}
