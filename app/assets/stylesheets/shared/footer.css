@@ -1,5 +1,6 @@
 .footer {
   width: 100vw;
+  height: auto;
   padding: 2vh 15vw;
   color: black;
   background-color: lightyellow;
@@ -14,6 +15,12 @@
 
 .inko-details {
   margin: 0 4vw;
+}
+
+.footer-content-head {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .footer-link {
