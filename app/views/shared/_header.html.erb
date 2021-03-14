@@ -13,8 +13,20 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to '地域', "#", class: "prefecture-list" %></li>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <li><%= link_to 'カテゴリー', "#", class: "category-list", id: "category" %></li>
     </ul>
+    <ul class='category-windou', id="pull-down">
+      <li class="pull-down-list">しぐさ</li>
+      <li class="pull-down-list">遊び</li>
+      <li class="pull-down-list">飼育用品</li>
+      <li class="pull-down-list">おもちゃ</li>
+      <li class="pull-down-list">エサ</li>
+      <li class="pull-down-list">睡眠</li>
+      <li class="pull-down-list">ショップ</li>
+      <li class="pull-down-list">病院</li>
+      <li class="pull-down-list">その他</li>
+    </ul>
+
     <ul class='lists-right'>
     <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, "#", class: "user-nickname" %> </li>
