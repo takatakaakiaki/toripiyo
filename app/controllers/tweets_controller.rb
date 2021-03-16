@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :category]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_tweet, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -45,6 +45,10 @@ class TweetsController < ApplicationController
   def category
     @tweet = Tweet.find_by(category_id: params[:id])
     @tweets = Tweet.where(category_id: params[:id]).order('created_at DESC')
+  end
+
+  def search
+    @tweets = Tweet.search(params[:keyword])
   end
 
   private

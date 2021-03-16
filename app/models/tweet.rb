@@ -19,4 +19,12 @@ class Tweet < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :prefecture
+
+  def self.search(search)
+    if search != ""
+      Tweet.where('article LIKE(?)', "%#{search}%")
+    else
+      Tweet.all
+    end
+  end
 end

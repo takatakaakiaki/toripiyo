@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get 'tweets/index'
   root to: "tweets#index"
 
-  resources :tweets
+  resources :tweets do
+    collection do
+      get 'search'
+    end
+  end
 
   get '/tweets/category/:id', to: "tweets#category"
 
