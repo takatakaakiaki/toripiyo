@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :tweets
 
+  get '/tweets/category/:id', to: "tweets#category"
+
 end
