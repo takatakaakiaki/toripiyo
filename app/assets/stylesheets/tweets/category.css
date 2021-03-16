@@ -1,0 +1,53 @@
+/* 記事一覧 */
+
+.tweet-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.tweet-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.tweet-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+
+.tweet-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.tweet-img-content {
+  position: relative;
+}
+
+.tweet-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.tweet-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.tweet-name {
+  font-size: 2.5vh;
+}
+
+.list {
+  list-style: none;
+}

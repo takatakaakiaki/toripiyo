@@ -2,36 +2,31 @@
 
   <%# 記事一覧 %>
   <div class='tweet-contents'>
-    <h2 class='title'><%= "#{@tweet.category.name}に関する記事" %></h2>
-    <ul class='tweet-lists'>
-      <% if @tweets.present? %>
-        <% @tweets.each do |tweet|%>
-          <li class='list'>
-            <%= link_to tweet_path(tweet.id) do %>
-              <div class='tweet-img-content'>
-                <%= image_tag tweet.image, class: "tweet-img" if tweet.image.attached? %>  
-              </div>
-              <div class='tweet-info'>
-                <h3 class='tweet-name'>
-                  <%= tweet.title %>
-                </h3>
-              </div>
-            <% end %>
-          </li>
-        <% end %>
-      <% end %>
-
-      <%# サンプル画像 %>
-      <% if @tweets.length == 0 %>
-        <li class='list'>
-          <%= link_to '#' do %>
-            <%= image_tag "inko-sample.png", class: "tweet-img" %>
+    <% if @tweets.present? %>
+      <h2 class='title'><%= "#{@tweet.category.name}に関する記事" %></h2>
+        <ul class='tweet-lists'>
+          <% @tweets.each do |tweet|%>
+            <li class='list'>
+              <%= link_to tweet_path(tweet.id) do %>
+                <div class='tweet-img-content'>
+                  <%= image_tag tweet.image, class: "tweet-img" if tweet.image.attached? %>  
+                </div>
+                <div class='tweet-info'>
+                  <h3 class='tweet-name'>
+                    <%= tweet.title %>
+                  </h3>
+                </div>
+              <% end %>
+            </li>
           <% end %>
-        </li>
-      <% end %>
-    </ul>
+        </ul>
+    <% else @tweets.length == 0 %>
+      <li class='list'>
+        <%= link_to '#' do %>
+          <%= image_tag "inko-sample.png", class: "tweet-img" %>
+        <% end %>
+      </li>
+    <% end %>
   </div>
-    <%# サンプル画像 %>
-  <%# 記事一覧 %>
 
 <%= render "shared/footer" %>
