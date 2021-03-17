@@ -1,6 +1,5 @@
 <%= render "shared/second-header" %>
 
-<%# 記事の概要 %>
 <div class="tweet-show">
   <div class="tweet-box">
     <h2 class="name">
@@ -55,18 +54,28 @@
   <%# /記事の概要 %>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    <p class="comment-warn">
+      相手のことを考え丁寧なコメントを心がけましょう。
+      <br>
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    </p>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
+        <%= form.text_area :comment, placeholder: "コメント欄", class: "comment-area" %><br>
+        <%= form.submit "コメントする", class: "comment-btn" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
+  <div class="comments">
+    <h4>【コメント一覧】</h4>
+    <% @comments.each do |comment| %>
+      <p>
+        <strong><%= link_to comment.user.nickname %>:</strong>
+        <%= comment.comment %>
       </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <% end %>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">

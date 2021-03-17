@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
 
-  belongs_to :users
-  belongs_to :tweets
+  belongs_to :tweet
+  belongs_to :user
+  
+  validates :comment,         presence: true
 
 end
