@@ -157,6 +157,11 @@
   margin-bottom: 2vh;
 }
 
+.comment-area {
+  height: 100px;
+  width: 300px;
+}
+
 .comment-flag {
   display: flex;
   justify-content: center;
