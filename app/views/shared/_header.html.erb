@@ -1,5 +1,5 @@
 <header class="top-page-header">
-  鳥のいろいろ とりぴよ
+  <h1 class="title-logo">鳥のいろいろ とりぴよ</h1>
   <div class="search-bar-contents">
     <%= link_to image_tag("inko-logo.png", class:"inko-icon"), "/" %>
     <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -16,15 +16,13 @@
       <li><%= link_to 'カテゴリー', "#", class: "category-list", id: "category" %></li>
     </ul>
     <ul class='category-windou', id="pull-down">
-      <li><%= link_to 'しぐさ', '/tweets/category/2', class: "pull-down-list" %></li>
-      <li><%= link_to '遊び', '/tweets/category/3', class: "pull-down-list" %></li>
+      <li><%= link_to '普段の様子', '/tweets/category/2', class: "pull-down-list" %></li>
+      <li><%= link_to '飼育について', '/tweets/category/3', class: "pull-down-list" %></li>
       <li><%= link_to '飼育用品', '/tweets/category/4', class: "pull-down-list" %></li>
       <li><%= link_to 'おもちゃ', '/tweets/category/5', class: "pull-down-list" %></li>
-      <li><%= link_to 'エサ', '/tweets/category/6', class: "pull-down-list" %></li>
-      <li><%= link_to '睡眠', '/tweets/category/7', class: "pull-down-list" %></li>
-      <li><%= link_to 'ショップ', '/tweets/category/8', class: "pull-down-list" %></li>
-      <li><%= link_to '病院', '/tweets/category/9', class: "pull-down-list" %></li>
-      <li><%= link_to 'その他', '/tweets/category/10', class: "pull-down-list" %></li>
+      <li><%= link_to 'ショップ', '/tweets/category/6', class: "pull-down-list" %></li>
+      <li><%= link_to '病院', '/tweets/category/7', class: "pull-down-list" %></li>
+      <li><%= link_to 'その他', '/tweets/category/8', class: "pull-down-list" %></li>
     </ul>
 
     <ul class='lists-right'>

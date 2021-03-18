@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Raleway:wght@100&display=swap');
+
 .second-header {
   width: 100%;
   min-width: 800px;
   height: 130px;
-  background-color: lightblue;
+  background-color: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,4 +14,8 @@
 .second-logo {
   width: 185px;
   height: 49px;
+}
+
+.second-title-logo {
+  font-family: 'Hachi Maru Pop', cursive;
 }
