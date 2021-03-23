@@ -79,13 +79,35 @@
   text-decoration: none;
   margin-right: 5vw;
   color: #333333;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
+}
+
+.prefecture-list:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
 }
 
 .category-list {
   text-decoration: none;
   color: #333333;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
+}
+
+.category-list:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
 }
 
 .category-windou {
@@ -119,27 +141,68 @@
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
-  font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
 }
 
+.user-nickname:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
+}
 
 .logout {
   text-decoration: none;
   color: #333333;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
+}
+
+.logout:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
   margin-right: 3vw;
   color: #333333;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
+}
+
+.login:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
 }
 
 .sign-up {
   text-decoration: none;
   color: #333333;
-  font-size: 25px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px ;
+  border: solid 1px lightpink;
+  background-color: lightpink;
+  box-shadow: 3px 3px black;
+}
+
+.sign-up:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+  right: 3px;
 }
