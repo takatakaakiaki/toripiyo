@@ -112,22 +112,29 @@
 
 .category-windou {
   display: none;
-  background-color: lightpink;
-  font-size: 20px;
   position: absolute;
-  top: 242px;
-  left: 310px;
-  height: 230px;
+  border-left:1px solid black ;
+  border-right:1px solid black ;
+  border-bottom:1px solid black ;
+  position: absolute;
+  top: 244px;
+  left: 320px;
+  height: 250px;
   width: 160px;
-  padding: 5px 0 5px 0;
   text-align-last: justify;
   align-items: center;
+  background-color: lightpink;
 }
 
 .pull-down-list {
+  border-top:1px solid black ;
+  font-size: 16px;
   padding: 5px 10px 5px 10px;
+}
+
+.pull-down-list a {
+  color: black;
   text-decoration: none;
-  color:black;
 }
 
 .lists-right {
