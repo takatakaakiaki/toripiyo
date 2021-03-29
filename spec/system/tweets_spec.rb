@@ -193,3 +193,47 @@ RSpec.describe "ツイート編集", type: :system do
   end
 end
 
+RSpec.describe "ツイート削除", type: :system do
+  before do
+    @tweet1 = FactoryBot.create(:tweet)
+    @tweet2 = FactoryBot.create(:tweet)
+    sleep(1)
+  end
+
+  context '投稿した記事の削除ができる' do
+    it '自分が投稿した記事ならば削除できる' do
+      # Basic認証の入力をする
+      basic_pass
+
+      # ツイート2を投稿したユーザーがログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @tweet2.user.email
+      fill_in 'user[password]', with: @tweet2.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+
+      # ツイート2をクリックする
+      page.first("img[src$='inko-sample.png']").click
+
+      # ツイート2の詳細ページに遷移したことを確認する 
+      expect(current_path).to eq(tweet_path(@tweet2.id))
+
+      # 記事を削除するリンクがあることを確認する
+      expect(page).to have_content('削除')
+
+      # 削除するとTweetモデルのカウントが1減ることを確認する
+      expect {
+        click_on '削除'
+      }.to change {Tweet.count}.by(-1)
+
+      # トップページに遷移したことを確認する
+      expect(current_path).to eq(root_path) 
+
+      # トップページにはツイート2の内容がないことを確認する(タイトル)
+      expect(page).to have_no_content(@tweet2.title)
+
+      # トップページにはツイート2の内容がないことを確認する(画像)
+      expect(page).to have_selector "@tweet2.image"
+    end
+  end
+end
