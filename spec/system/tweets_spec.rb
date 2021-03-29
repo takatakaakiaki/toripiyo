@@ -158,7 +158,7 @@ RSpec.describe "ツイート編集", type: :system do
     end
   end
 
-  context '他の人が投稿した記事は編集できない' do
+  context 'ツイートの編集ができない' do
     it '自分が投稿した記事ではないならば編集はできない' do
       # ツイート1を投稿したユーザーがログインする
       visit new_user_session_path
@@ -233,7 +233,41 @@ RSpec.describe "ツイート削除", type: :system do
       expect(page).to have_no_content(@tweet2.title)
 
       # トップページにはツイート2の内容がないことを確認する(画像)
-      expect(page).to have_selector "@tweet2.image"
+      expect(page).to have_no_selector "img[src$='inko-sample.png(@tweet2.image)']"
+    end
+  end
+
+  context 'ツイートの削除ができない' do
+    it '自分が投稿した記事ではないならば削除はできない' do
+      # ツイート1を投稿したユーザーがログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @tweet1.user.email
+      fill_in 'user[password]', with: @tweet1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+
+      # ツイート2をクリックする
+      page.first("img[src$='inko-sample.png']").click      
+
+      # ツイート2の詳細ページに遷移したことを確認する 
+      expect(current_path).to eq(tweet_path(@tweet2.id))
+
+      # 削除のリンクがないことを確認する
+      expect(page).to have_no_content('削除')
+    end
+
+    it 'ログインしていないとツイートを削除できない' do
+      # トップページに遷移する
+      visit root_path
+
+      # ツイート2をクリックする
+      page.first("img[src$='inko-sample.png']").click            
+      
+      # ツイート2の詳細ページに遷移したことを確認する 
+      expect(current_path).to eq(tweet_path(@tweet2.id))
+
+      # 削除のリンクがないことを確認する
+      expect(page).to have_no_content('削除')    
     end
   end
 end
