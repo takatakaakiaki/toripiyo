@@ -270,4 +270,15 @@ RSpec.describe "ツイート削除", type: :system do
       expect(page).to have_no_content('削除')    
     end
   end
+
+  RSpec.describe "カテゴリー毎のツイートへの遷移", type: :system do
+    before do
+
+      sleep(1)
+    end
+
+
+
+
+
 end
