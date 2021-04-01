@@ -270,15 +270,66 @@ RSpec.describe "ツイート削除", type: :system do
       expect(page).to have_no_content('削除')    
     end
   end
+end
 
-  RSpec.describe "カテゴリー毎のツイートへの遷移", type: :system do
-    before do
+RSpec.describe "カテゴリー毎のツイートへの遷移", type: :system do
+  before do
+    @tweet = FactoryBot.create(:tweet)
+    sleep(1)
+  end
 
-      sleep(1)
+  context 'カテゴリー毎のページに遷移できる' do  
+    it '投稿されているカテゴリーについてはカテゴリー毎のページに投稿記事がある' do
+      # Basic認証の入力をする
+      basic_pass
+
+      # ツイートを投稿したユーザーがログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @tweet.user.email
+      fill_in 'user[password]', with: @tweet.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+
+      # カテゴリーをクリックする
+      click_on 'カテゴリー'
+
+      # 飼育用品をクリックする
+      click_on '飼育用品'
+
+      # カテゴリーが飼育用品の記事のみのページに遷移したことを確認する
+      expect(current_path).to eq("/tweets/category/4")
+
+      # 投稿された記事があることを確認する(画像)
+      expect(page).to have_selector"img[src$='inko-sample.png']"
+
+      # 投稿された記事があることを確認する(テキスト)
+      expect(page).to have_content(@tweet_title)
     end
+  end
 
+  context 'カテゴリー毎のページにはサンプル画像だけしかない' do
+    it 'まだ投稿されていないカテゴリーのページにはサンプル画像だけしかない' do
+      # ツイートを投稿したユーザーがログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @tweet.user.email
+      fill_in 'user[password]', with: @tweet.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
 
+      # カテゴリーをクリックする
+      click_on 'カテゴリー'
 
+      # 飼育についてをクリックする
+      click_on '飼育について'
 
+      # カテゴリーが飼育についての記事のみのページに遷移したことを確認する
+      expect(current_path).to eq("/tweets/category/3")
 
+      # 投稿された記事がないことを確認する(画像)
+      expect(page).to have_no_selector"img[src$='inko-sample.png(@tweet.image)']"
+
+      # 投稿された記事がないことを確認する(テキスト)
+      expect(page).to have_no_content(@tweet.title)
+    end
+  end
 end
