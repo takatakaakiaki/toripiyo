@@ -23,10 +23,17 @@
 https://toripiyo.herokuapp.com/
 
 # テスト用アカウント
+(ユーザー1)
 
 メールアドレス taka@takapiyo
 
 パスワード takapiyo13
+
+(ユーザー2)
+
+メールアドレス kainusi@kainusi
+
+パスワード kainusi1234
 
 Basic ID drdrpiyotaka
 
